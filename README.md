@@ -1,58 +1,74 @@
 # PLTECH Scanner
 
-PLTECH Scanner is a command-line security scanner for checking various security measures in code repositories.
+PLTECH Scanner is a comprehensive command-line security scanner for checking various security measures in code repositories. It supports multiple programming languages and provides detailed reports on potential vulnerabilities.
+
+## Features
+
+- String Input Sanitization (SQL Injection, XSS, DOM-based Injection)
+- CORS Configuration Analysis
+- Authentication Implementation Checks
+- Authorization Setup Verification
+- Detailed Terminal and HTML Reports
 
 ## Installation
 
-To install PLTECH Scanner globally, follow these steps:
+To install PLTECH Scanner globally, use npm:
 
-1. Clone this repository:
-   ```
-   git clone https://github.com/yourusername/pltech-scanner.git
-   ```
-
-2. Navigate to the project directory:
-   ```
-   cd pltech-scanner
-   ```
-
-3. Install dependencies, build the project, and link the package globally:
-   ```
-   npm install && npm run build && npm link
-   ```
+```
+npm install -g pltech-scanner
+```
 
 ## Usage
 
 After installing the scanner, you can use it from any directory by running:
 
 ```
-pltech-scanner [options]
+pltech-scanner [options] <path-to-repository>
 ```
 
 ### Options
 
 - `--all`, `-a`: Run all scans
-- `--string-sanitization`, `-s`: Check string input sanitization
-- `--cors`, `-c`: Check CORS configuration
-- `--authentication`, `-u`: Check authentication implementation
-- `--authorization`, `-z`: Check authorization setup
-- `--html-report`, `-h`: Generate HTML report
+- `--string`, `-s`: Run string input sanitization scan
+- `--cors`, `-c`: Run CORS configuration scan
+- `--auth`, `-u`: Run authentication scan
+- `--authz`, `-z`: Run authorization scan
+- `--no-open`, `-n`: Do not automatically open the HTML report
 
 ### Examples
 
-Run all scans:
+Run all scans on the current directory:
 ```
-pltech-scanner --all
-```
-
-Check only authentication and generate an HTML report:
-```
-pltech-scanner --authentication --html-report
+pltech-scanner --all .
 ```
 
-## HTML Report
+Run only string input sanitization and CORS configuration scans:
+```
+pltech-scanner --string --cors /path/to/your/repo
+```
 
-When the `--html-report` option is used, the scanner generates an interactive HTML report with a pie chart visualization of the scan results. The report is saved as `security_report.html` in the current directory.
+Run authentication and authorization scans without opening the HTML report:
+```
+pltech-scanner --auth --authz --no-open /path/to/your/repo
+```
+
+## Reports
+
+The scanner generates two types of reports:
+
+1. A detailed, colorful terminal report that provides an overview of the scan results.
+2. An interactive HTML report with charts and detailed vulnerability information.
+
+By default, the HTML report is automatically opened in your default web browser after the scan. You can disable this behavior with the `--no-open` option.
+
+## Supported Languages
+
+The scanner supports analysis of the following languages:
+
+- JavaScript
+- Python
+- PHP
+- Java
 
 ## Note
 

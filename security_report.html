@@ -1,0 +1,477 @@
+<!DOCTYPE html><html lang="en"><head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>PLTECH Security Scan Report</title>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&amp;display=swap" rel="stylesheet">
+            <style>
+                body {
+                    font-family: 'Roboto', sans-serif;
+                    line-height: 1.6;
+                    color: #333;
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    padding: 20px;
+                    background-color: #f5f5f5;
+                }
+                h1, h2, h3 {
+                    color: #2c3e50;
+                }
+                h1 {
+                    text-align: center;
+                    margin-bottom: 30px;
+                }
+                .check {
+                    background-color: #fff;
+                    border-radius: 8px;
+                    padding: 20px;
+                    margin-bottom: 30px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    transition: all 0.3s ease;
+                }
+                .check:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+                }
+                .status {
+                    font-weight: bold;
+                    padding: 5px 10px;
+                    border-radius: 4px;
+                    display: inline-block;
+                }
+                .passed {
+                    background-color: #27ae60;
+                    color: white;
+                }
+                .failed {
+                    background-color: #c0392b;
+                    color: white;
+                }
+                .no-tests {
+                    background-color: #f39c12;
+                    color: white;
+                }
+                .vulnerabilities, .passed-checks {
+                    margin-top: 20px;
+                }
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-bottom: 20px;
+                }
+                th, td {
+                    border: 1px solid #ddd;
+                    padding: 12px;
+                    text-align: left;
+                }
+                th {
+                    background-color: #f2f2f2;
+                    font-weight: bold;
+                }
+                tr:nth-child(even) {
+                    background-color: #f9f9f9;
+                }
+                #chart {
+                    width: 100%;
+                    max-width: 600px;
+                    margin: 30px auto;
+                }
+                #summary {
+                    text-align: center;
+                    font-size: 1.2em;
+                    margin-bottom: 30px;
+                }
+                @media (max-width: 768px) {
+                    body {
+                        padding: 10px;
+                    }
+                    table {
+                        font-size: 14px;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <h1>PLTECH Security Scan Report</h1>
+            <div id="summary"><h2>Summary</h2><table><tr><th>Check Type</th><th>Status</th><th>Issues Found</th><th>Checks Passed</th></tr>
+            <tr>
+                <td>stringSanitization</td>
+                <td><span class="status failed">FAILED</span></td>
+                <td>13</td>
+                <td>3</td>
+            </tr>
+        
+            <tr>
+                <td>corsConfiguration</td>
+                <td><span class="status passed">PASSED</span></td>
+                <td>0</td>
+                <td>23</td>
+            </tr>
+        
+            <tr>
+                <td>authentication</td>
+                <td><span class="status failed">FAILED</span></td>
+                <td>2</td>
+                <td>0</td>
+            </tr>
+        
+            <tr>
+                <td>authorization</td>
+                <td><span class="status failed">FAILED</span></td>
+                <td>7</td>
+                <td>1</td>
+            </tr>
+        </table>
+        <p>Total Issues Found: 22</p>
+        <p>Total Checks Passed: 27</p>
+        <p>Total Checks with No Tests Run: 0</p>
+    </div>
+            <div id="chart">
+                <canvas id="securityChart"></canvas>
+            </div>
+            <div id="results"><div class="check"><h2>stringSanitization</h2><p>Status: <span class="status failed">FAILED</span></p><h3>Checks Performed:</h3><ul><li>JavaScript (ESLint with security plugin)</li></ul><h3>Vulnerabilities:</h3><table><tr><th>File</th><th>Line</th><th>Column</th><th>Message</th></tr>
+                        <tr>
+                            <td>/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/bin/scanner.js</td>
+                            <td>71</td>
+                            <td>9</td>
+                            <td>security/detect-non-literal-fs-filename: Found writeFileSync from package "fs" with non literal argument at index 0</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/scanner.js</td>
+                            <td>45</td>
+                            <td>27</td>
+                            <td>security/detect-non-literal-fs-filename: Found readdir from package "fs" with non literal argument at index 0</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/scanner.js</td>
+                            <td>110</td>
+                            <td>9</td>
+                            <td>security/detect-non-literal-fs-filename: Found writeFileSync from package "fs" with non literal argument at index 0</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/authentication.js</td>
+                            <td>29</td>
+                            <td>31</td>
+                            <td>security/detect-non-literal-fs-filename: Found readFile from package "fs" with non literal argument at index 0</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/authentication.js</td>
+                            <td>149</td>
+                            <td>27</td>
+                            <td>security/detect-non-literal-fs-filename: Found readdir from package "fs" with non literal argument at index 0</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/authorization.js</td>
+                            <td>29</td>
+                            <td>31</td>
+                            <td>security/detect-non-literal-fs-filename: Found readFile from package "fs" with non literal argument at index 0</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/authorization.js</td>
+                            <td>143</td>
+                            <td>27</td>
+                            <td>security/detect-non-literal-fs-filename: Found readdir from package "fs" with non literal argument at index 0</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/corsConfig.js</td>
+                            <td>23</td>
+                            <td>31</td>
+                            <td>security/detect-non-literal-fs-filename: Found readFile from package "fs" with non literal argument at index 0</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/corsConfig.js</td>
+                            <td>134</td>
+                            <td>27</td>
+                            <td>security/detect-non-literal-fs-filename: Found readdir from package "fs" with non literal argument at index 0</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/stringSanitization.js</td>
+                            <td>152</td>
+                            <td>31</td>
+                            <td>security/detect-non-literal-fs-filename: Found readFile from package "fs" with non literal argument at index 0</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/stringSanitization.js</td>
+                            <td>208</td>
+                            <td>31</td>
+                            <td>security/detect-non-literal-fs-filename: Found readFile from package "fs" with non literal argument at index 0</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/stringSanitization.js</td>
+                            <td>264</td>
+                            <td>31</td>
+                            <td>security/detect-non-literal-fs-filename: Found readFile from package "fs" with non literal argument at index 0</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/stringSanitization.js</td>
+                            <td>315</td>
+                            <td>27</td>
+                            <td>security/detect-non-literal-fs-filename: Found readdir from package "fs" with non literal argument at index 0</td>
+                        </tr>
+                    </table><h3>Passed Checks:</h3><table><tr><th>File</th><th>Message</th></tr>
+                        <tr>
+                            <td>/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/index.js</td>
+                            <td>Passed all ESLint security checks</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/reportGenerator.js</td>
+                            <td>Passed all ESLint security checks</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/webpack.config.js</td>
+                            <td>Passed all ESLint security checks</td>
+                        </tr>
+                    </table></div><div class="check"><h2>corsConfiguration</h2><p>Status: <span class="status passed">PASSED</span></p><h3>Checks Performed:</h3><ul><li>CORS configuration detection</li></ul><h3>Passed Checks:</h3><table><tr><th>File</th><th>Message</th></tr>
+                        <tr>
+                            <td>bin/scanner.js</td>
+                            <td>CORS origin is properly configured.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>bin/scanner.js</td>
+                            <td>CORS origin is properly configured.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>bin/scanner.js</td>
+                            <td>CORS origin is properly configured.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>bin/scanner.js</td>
+                            <td>CORS origin is properly configured.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>bin/scanner.js</td>
+                            <td>File checked for CORS configuration.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>scanner.js</td>
+                            <td>CORS origin is properly configured.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>scanner.js</td>
+                            <td>CORS origin is properly configured.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>scanner.js</td>
+                            <td>CORS origin is properly configured.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>scanner.js</td>
+                            <td>CORS origin is properly configured.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>scanner.js</td>
+                            <td>File checked for CORS configuration.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src/corsConfig.js</td>
+                            <td>CORS origin is properly configured.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src/corsConfig.js</td>
+                            <td>CORS origin is properly configured.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src/corsConfig.js</td>
+                            <td>CORS origin is properly configured.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src/corsConfig.js</td>
+                            <td>CORS origin is properly configured.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src/corsConfig.js</td>
+                            <td>CORS origin is properly configured.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src/corsConfig.js</td>
+                            <td>CORS origin is properly configured.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src/corsConfig.js</td>
+                            <td>CORS origin is properly configured.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src/corsConfig.js</td>
+                            <td>File checked for CORS configuration.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src/index.js</td>
+                            <td>CORS origin is properly configured.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src/index.js</td>
+                            <td>CORS origin is properly configured.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src/index.js</td>
+                            <td>CORS origin is properly configured.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src/index.js</td>
+                            <td>CORS origin is properly configured.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src/index.js</td>
+                            <td>File checked for CORS configuration.</td>
+                        </tr>
+                    </table></div><div class="check"><h2>authentication</h2><p>Status: <span class="status failed">FAILED</span></p><h3>Checks Performed:</h3><ul><li>Authentication implementation detection</li><li>JWT token expiration check</li><li>Session secret strength check</li><li>OAuth state parameter check</li><li>Protected routes check</li></ul><h3>Vulnerabilities:</h3><table><tr><th>File</th><th>Line</th><th>Column</th><th>Message</th></tr>
+                        <tr>
+                            <td>src/authentication.js</td>
+                            <td>103</td>
+                            <td>N/A</td>
+                            <td>Route may not be properly protected with authentication middleware.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src/authorization.js</td>
+                            <td>75</td>
+                            <td>N/A</td>
+                            <td>Route may not be properly protected with authentication middleware.</td>
+                        </tr>
+                    </table></div><div class="check"><h2>authorization</h2><p>Status: <span class="status failed">FAILED</span></p><h3>Checks Performed:</h3><ul><li>Authorization implementation detection</li><li>RBAC implementation check</li><li>Hardcoded role checks</li><li>Sensitive route protection</li><li>Separation of authentication and authorization</li></ul><h3>Vulnerabilities:</h3><table><tr><th>File</th><th>Line</th><th>Column</th><th>Message</th></tr>
+                        <tr>
+                            <td>src/authorization.js</td>
+                            <td>12</td>
+                            <td>N/A</td>
+                            <td>Role/Permission checks may not be properly implemented.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src/authorization.js</td>
+                            <td>39</td>
+                            <td>N/A</td>
+                            <td>Role/Permission checks may not be properly implemented.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src/authorization.js</td>
+                            <td>44</td>
+                            <td>N/A</td>
+                            <td>Role/Permission checks may not be properly implemented.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src/authorization.js</td>
+                            <td>62</td>
+                            <td>N/A</td>
+                            <td>Role/Permission checks may not be properly implemented.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src/authorization.js</td>
+                            <td>63</td>
+                            <td>N/A</td>
+                            <td>Role/Permission checks may not be properly implemented.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src/authorization.js</td>
+                            <td>68</td>
+                            <td>N/A</td>
+                            <td>Role/Permission checks may not be properly implemented.</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src/authorization.js</td>
+                            <td>152</td>
+                            <td>N/A</td>
+                            <td>Role/Permission checks may not be properly implemented.</td>
+                        </tr>
+                    </table><h3>Passed Checks:</h3><table><tr><th>File</th><th>Message</th></tr>
+                        <tr>
+                            <td>src/authorization.js</td>
+                            <td>Authentication and authorization are properly separated.</td>
+                        </tr>
+                    </table></div></div>
+            <script>
+                const ctx = document.getElementById('securityChart').getContext('2d');
+                const data = {"stringSanitization":{"passed":false,"vulnerabilities":[{"file":"/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/bin/scanner.js","line":71,"column":9,"message":"security/detect-non-literal-fs-filename: Found writeFileSync from package \"fs\" with non literal argument at index 0","type":"JavaScript"},{"file":"/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/scanner.js","line":45,"column":27,"message":"security/detect-non-literal-fs-filename: Found readdir from package \"fs\" with non literal argument at index 0","type":"JavaScript"},{"file":"/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/scanner.js","line":110,"column":9,"message":"security/detect-non-literal-fs-filename: Found writeFileSync from package \"fs\" with non literal argument at index 0","type":"JavaScript"},{"file":"/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/authentication.js","line":29,"column":31,"message":"security/detect-non-literal-fs-filename: Found readFile from package \"fs\" with non literal argument at index 0","type":"JavaScript"},{"file":"/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/authentication.js","line":149,"column":27,"message":"security/detect-non-literal-fs-filename: Found readdir from package \"fs\" with non literal argument at index 0","type":"JavaScript"},{"file":"/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/authorization.js","line":29,"column":31,"message":"security/detect-non-literal-fs-filename: Found readFile from package \"fs\" with non literal argument at index 0","type":"JavaScript"},{"file":"/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/authorization.js","line":143,"column":27,"message":"security/detect-non-literal-fs-filename: Found readdir from package \"fs\" with non literal argument at index 0","type":"JavaScript"},{"file":"/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/corsConfig.js","line":23,"column":31,"message":"security/detect-non-literal-fs-filename: Found readFile from package \"fs\" with non literal argument at index 0","type":"JavaScript"},{"file":"/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/corsConfig.js","line":134,"column":27,"message":"security/detect-non-literal-fs-filename: Found readdir from package \"fs\" with non literal argument at index 0","type":"JavaScript"},{"file":"/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/stringSanitization.js","line":152,"column":31,"message":"security/detect-non-literal-fs-filename: Found readFile from package \"fs\" with non literal argument at index 0","type":"JavaScript"},{"file":"/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/stringSanitization.js","line":208,"column":31,"message":"security/detect-non-literal-fs-filename: Found readFile from package \"fs\" with non literal argument at index 0","type":"JavaScript"},{"file":"/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/stringSanitization.js","line":264,"column":31,"message":"security/detect-non-literal-fs-filename: Found readFile from package \"fs\" with non literal argument at index 0","type":"JavaScript"},{"file":"/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/stringSanitization.js","line":315,"column":27,"message":"security/detect-non-literal-fs-filename: Found readdir from package \"fs\" with non literal argument at index 0","type":"JavaScript"}],"passedChecks":[{"file":"/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/index.js","message":"Passed all ESLint security checks","type":"JavaScript"},{"file":"/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/reportGenerator.js","message":"Passed all ESLint security checks","type":"JavaScript"},{"file":"/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/webpack.config.js","message":"Passed all ESLint security checks","type":"JavaScript"}],"checksPerformed":["JavaScript (ESLint with security plugin)"]},"corsConfiguration":{"passed":true,"corsConfigured":true,"vulnerabilities":[],"passedChecks":[{"file":"bin/scanner.js","line":8,"message":"CORS origin is properly configured.","type":"CORS"},{"file":"bin/scanner.js","line":24,"message":"CORS origin is properly configured.","type":"CORS"},{"file":"bin/scanner.js","line":54,"message":"CORS origin is properly configured.","type":"CORS"},{"file":"bin/scanner.js","line":55,"message":"CORS origin is properly configured.","type":"CORS"},{"file":"bin/scanner.js","message":"File checked for CORS configuration.","type":"CORS"},{"file":"scanner.js","line":11,"message":"CORS origin is properly configured.","type":"CORS"},{"file":"scanner.js","line":82,"message":"CORS origin is properly configured.","type":"CORS"},{"file":"scanner.js","line":84,"message":"CORS origin is properly configured.","type":"CORS"},{"file":"scanner.js","line":146,"message":"CORS origin is properly configured.","type":"CORS"},{"file":"scanner.js","message":"File checked for CORS configuration.","type":"CORS"},{"file":"src/corsConfig.js","line":8,"message":"CORS origin is properly configured.","type":"CORS"},{"file":"src/corsConfig.js","line":14,"message":"CORS origin is properly configured.","type":"CORS"},{"file":"src/corsConfig.js","line":30,"message":"CORS origin is properly configured.","type":"CORS"},{"file":"src/corsConfig.js","line":31,"message":"CORS origin is properly configured.","type":"CORS"},{"file":"src/corsConfig.js","line":113,"message":"CORS origin is properly configured.","type":"CORS"},{"file":"src/corsConfig.js","line":116,"message":"CORS origin is properly configured.","type":"CORS"},{"file":"src/corsConfig.js","line":126,"message":"CORS origin is properly configured.","type":"CORS"},{"file":"src/corsConfig.js","message":"File checked for CORS configuration.","type":"CORS"},{"file":"src/index.js","line":5,"message":"CORS origin is properly configured.","type":"CORS"},{"file":"src/index.js","line":21,"message":"CORS origin is properly configured.","type":"CORS"},{"file":"src/index.js","line":51,"message":"CORS origin is properly configured.","type":"CORS"},{"file":"src/index.js","line":52,"message":"CORS origin is properly configured.","type":"CORS"},{"file":"src/index.js","message":"File checked for CORS configuration.","type":"CORS"}],"checksPerformed":["CORS configuration detection"]},"authentication":{"passed":false,"authImplemented":true,"vulnerabilities":[{"file":"src/authentication.js","line":103,"message":"Route may not be properly protected with authentication middleware.","type":"Authentication"},{"file":"src/authorization.js","line":75,"message":"Route may not be properly protected with authentication middleware.","type":"Authentication"}],"passedChecks":[],"checksPerformed":["Authentication implementation detection","JWT token expiration check","Session secret strength check","OAuth state parameter check","Protected routes check"]},"authorization":{"passed":false,"authorizationImplemented":true,"vulnerabilities":[{"file":"src/authorization.js","line":12,"message":"Role/Permission checks may not be properly implemented.","type":"Authorization"},{"file":"src/authorization.js","line":39,"message":"Role/Permission checks may not be properly implemented.","type":"Authorization"},{"file":"src/authorization.js","line":44,"message":"Role/Permission checks may not be properly implemented.","type":"Authorization"},{"file":"src/authorization.js","line":62,"message":"Role/Permission checks may not be properly implemented.","type":"Authorization"},{"file":"src/authorization.js","line":63,"message":"Role/Permission checks may not be properly implemented.","type":"Authorization"},{"file":"src/authorization.js","line":68,"message":"Role/Permission checks may not be properly implemented.","type":"Authorization"},{"file":"src/authorization.js","line":152,"message":"Role/Permission checks may not be properly implemented.","type":"Authorization"}],"passedChecks":[{"file":"src/authorization.js","message":"Authentication and authorization are properly separated.","type":"Authorization"}],"checksPerformed":["Authorization implementation detection","RBAC implementation check","Hardcoded role checks","Sensitive route protection","Separation of authentication and authorization"]}};
+                const labels = Object.keys(data);
+                const values = labels.map(label => ({
+                    passed: data[label].passedChecks ? data[label].passedChecks.length : 0,
+                    failed: data[label].vulnerabilities ? data[label].vulnerabilities.length : 0,
+                    noTests: (data[label].checksPerformed && data[label].checksPerformed.length === 0) ? 1 : 0
+                }));
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [
+                            {
+                                label: 'Passed Checks',
+                                data: values.map(v => v.passed),
+                                backgroundColor: '#27ae60',
+                            },
+                            {
+                                label: 'Failed Checks',
+                                data: values.map(v => v.failed),
+                                backgroundColor: '#c0392b',
+                            },
+                            {
+                                label: 'No Tests Run',
+                                data: values.map(v => v.noTests),
+                                backgroundColor: '#f39c12',
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            x: {
+                                stacked: true,
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            title: {
+                                display: true,
+                                text: 'Security Scan Results'
+                            }
+                        }
+                    }
+                });
+            </script>
+        
+        
+    </body></html>

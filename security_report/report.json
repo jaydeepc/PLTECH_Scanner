@@ -1,0 +1,183 @@
+{
+  "stringSanitization": {
+    "/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/bin/scanner.js": [
+      {
+        "line": 71,
+        "message": "security/detect-non-literal-fs-filename: Found writeFileSync from package \"fs\" with non literal argument at index 0",
+        "type": "JavaScript",
+        "quickFix": "No quick fix available."
+      }
+    ],
+    "/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/scanner.js": [
+      {
+        "line": 45,
+        "message": "security/detect-non-literal-fs-filename: Found readdir from package \"fs\" with non literal argument at index 0",
+        "type": "JavaScript",
+        "quickFix": "No quick fix available."
+      },
+      {
+        "line": 123,
+        "message": "security/detect-non-literal-fs-filename: Found mkdirSync from package \"fs\" with non literal argument at index 0",
+        "type": "JavaScript",
+        "quickFix": "No quick fix available."
+      },
+      {
+        "line": 125,
+        "message": "security/detect-non-literal-fs-filename: Found writeFileSync from package \"fs\" with non literal argument at index 0",
+        "type": "JavaScript",
+        "quickFix": "No quick fix available."
+      },
+      {
+        "line": 130,
+        "message": "security/detect-non-literal-fs-filename: Found writeFileSync from package \"fs\" with non literal argument at index 0",
+        "type": "JavaScript",
+        "quickFix": "No quick fix available."
+      }
+    ],
+    "/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/authentication.js": [
+      {
+        "line": 29,
+        "message": "security/detect-non-literal-fs-filename: Found readFile from package \"fs\" with non literal argument at index 0",
+        "type": "JavaScript",
+        "quickFix": "No quick fix available."
+      },
+      {
+        "line": 149,
+        "message": "security/detect-non-literal-fs-filename: Found readdir from package \"fs\" with non literal argument at index 0",
+        "type": "JavaScript",
+        "quickFix": "No quick fix available."
+      }
+    ],
+    "/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/authorization.js": [
+      {
+        "line": 25,
+        "message": "security/detect-non-literal-fs-filename: Found readFile from package \"fs\" with non literal argument at index 0",
+        "type": "JavaScript",
+        "quickFix": "No quick fix available."
+      },
+      {
+        "line": 139,
+        "message": "security/detect-non-literal-fs-filename: Found readdir from package \"fs\" with non literal argument at index 0",
+        "type": "JavaScript",
+        "quickFix": "No quick fix available."
+      }
+    ],
+    "/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/corsConfig.js": [
+      {
+        "line": 19,
+        "message": "security/detect-non-literal-fs-filename: Found readFile from package \"fs\" with non literal argument at index 0",
+        "type": "JavaScript",
+        "quickFix": "No quick fix available."
+      },
+      {
+        "line": 130,
+        "message": "security/detect-non-literal-fs-filename: Found readdir from package \"fs\" with non literal argument at index 0",
+        "type": "JavaScript",
+        "quickFix": "No quick fix available."
+      }
+    ],
+    "/Users/codecrackjd/Documents/work/opensource/PLTECH_Scanner/src/stringSanitization.js": [
+      {
+        "line": 152,
+        "message": "security/detect-non-literal-fs-filename: Found readFile from package \"fs\" with non literal argument at index 0",
+        "type": "JavaScript",
+        "quickFix": "No quick fix available."
+      },
+      {
+        "line": 208,
+        "message": "security/detect-non-literal-fs-filename: Found readFile from package \"fs\" with non literal argument at index 0",
+        "type": "JavaScript",
+        "quickFix": "No quick fix available."
+      },
+      {
+        "line": 264,
+        "message": "security/detect-non-literal-fs-filename: Found readFile from package \"fs\" with non literal argument at index 0",
+        "type": "JavaScript",
+        "quickFix": "No quick fix available."
+      },
+      {
+        "line": 315,
+        "message": "security/detect-non-literal-fs-filename: Found readdir from package \"fs\" with non literal argument at index 0",
+        "type": "JavaScript",
+        "quickFix": "No quick fix available."
+      }
+    ]
+  },
+  "corsConfiguration": {},
+  "authentication": {
+    "src/authentication.js": [
+      {
+        "line": 103,
+        "message": "Route may not be properly protected with authentication middleware.",
+        "type": "Authentication",
+        "quickFix": "No quick fix available."
+      }
+    ],
+    "src/authorization.js": [
+      {
+        "line": 73,
+        "message": "Route may not be properly protected with authentication middleware.",
+        "type": "Authentication",
+        "quickFix": "No quick fix available."
+      }
+    ]
+  },
+  "authorization": {
+    "src/authorization.js": [
+      {
+        "line": 12,
+        "message": "Role/Permission checks may not be properly implemented.",
+        "type": "Authorization",
+        "quickFix": "Implement proper role/permission checking functions."
+      },
+      {
+        "line": 35,
+        "message": "Role/Permission checks may not be properly implemented.",
+        "type": "Authorization",
+        "quickFix": "Implement proper role/permission checking functions."
+      },
+      {
+        "line": 40,
+        "message": "Role/Permission checks may not be properly implemented.",
+        "type": "Authorization",
+        "quickFix": "Implement proper role/permission checking functions."
+      },
+      {
+        "line": 47,
+        "message": "Role/Permission checks may not be properly implemented.",
+        "type": "Authorization",
+        "quickFix": "Implement proper role/permission checking functions."
+      },
+      {
+        "line": 59,
+        "message": "Role/Permission checks may not be properly implemented.",
+        "type": "Authorization",
+        "quickFix": "Implement proper role/permission checking functions."
+      },
+      {
+        "line": 60,
+        "message": "Role/Permission checks may not be properly implemented.",
+        "type": "Authorization",
+        "quickFix": "Implement proper role/permission checking functions."
+      },
+      {
+        "line": 65,
+        "message": "Role/Permission checks may not be properly implemented.",
+        "type": "Authorization",
+        "quickFix": "Implement proper role/permission checking functions."
+      },
+      {
+        "line": 67,
+        "message": "Role/Permission checks may not be properly implemented.",
+        "type": "Authorization",
+        "quickFix": "Implement proper role/permission checking functions."
+      },
+      {
+        "line": 148,
+        "message": "Role/Permission checks may not be properly implemented.",
+        "type": "Authorization",
+        "quickFix": "Implement proper role/permission checking functions."
+      }
+    ]
+  }
+}

@@ -2,15 +2,12 @@
   "name": "pltech-scanner",
   "version": "1.0.0",
   "description": "A command-line security scanner for checking various security measures in code repositories",
-  "main": "dist/scanner.js",
+  "main": "scanner.js",
   "bin": {
-    "pltech-scanner": "./dist/scanner.js"
+    "pltech-scanner": "./scanner.js"
   },
   "scripts": {
-    "build": "webpack",
-    "start": "node dist/scanner.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "link": "npm run build && npm link"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": ["security", "scanner", "code-analysis"],
   "author": "",
@@ -21,11 +18,12 @@
     "eslint-plugin-security": "^1.6.0",
     "cheerio": "^1.0.0",
     "yargs": "^17.7.2",
-    "chart.js": "^3.9.1",
-    "path-browserify": "^1.0.1"
+    "chalk": "^4.1.2",
+    "cli-table3": "^0.6.3",
+    "colors": "^1.4.0"
   },
-  "devDependencies": {
-    "webpack": "^5.88.0",
-    "webpack-cli": "^5.1.4"
-  }
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "preferGlobal": true
 }
